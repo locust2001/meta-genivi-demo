@@ -1,0 +1,49 @@
+From e27be88be826e16b87b579f3be3d763214b33a90 Mon Sep 17 00:00:00 2001
+From: Changhyeok Bae <changhyeok.bae@gmail.com>
+Date: Wed, 6 Apr 2016 10:18:29 +0900
+Subject: [PATCH] Add rpi-ft5406-overlay.dts
+
+---
+ arch/arm/boot/dts/overlays/Makefile               |    1 +
+ arch/arm/boot/dts/overlays/rpi-ft5406-overlay.dts |   17 +++++++++++++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 arch/arm/boot/dts/overlays/rpi-ft5406-overlay.dts
+
+diff --git a/arch/arm/boot/dts/overlays/Makefile b/arch/arm/boot/dts/overlays/Makefile
+index 6947556..f1c2590 100644
+--- a/arch/arm/boot/dts/overlays/Makefile
++++ b/arch/arm/boot/dts/overlays/Makefile
+@@ -36,6 +36,7 @@ dtb-$(RPI_DT_OVERLAYS) += pps-gpio-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += rpi-dac-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += rpi-display-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += rpi-proto-overlay.dtb
++dtb-$(RPI_DT_OVERLAYS) += rpi-ft5406-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += sdhost-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += spi-bcm2708-overlay.dtb
+ dtb-$(RPI_DT_OVERLAYS) += spi-bcm2835-overlay.dtb
+diff --git a/arch/arm/boot/dts/overlays/rpi-ft5406-overlay.dts b/arch/arm/boot/dts/overlays/rpi-ft5406-overlay.dts
+new file mode 100644
+index 0000000..2e53a17
+--- /dev/null
++++ b/arch/arm/boot/dts/overlays/rpi-ft5406-overlay.dts
+@@ -0,0 +1,17 @@
++/dts-v1/;
++/plugin/;
++
++/ {
++	compatible = "brcm,bcm2708";
++
++	fragment@0 {
++		target-path = "/";
++		__overlay__ {
++			rpi_ft5406: rpi_ft5406 {
++				compatible = "rpi,rpi-ft5406";
++				firmware = <&firmware>;
++				status = "okay";
++			};
++		};
++	};
++};
+-- 
+1.7.9.5
+

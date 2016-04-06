@@ -8,6 +8,7 @@ SRC_URI = "\
     file://0001-rpi2-setup.patch \
     file://0002-drm-vc4-Use-the-fbdev_cma-helpers.patch \
     file://0003-drm-vc4-Allow-vblank-to-be-disabled.patch \
+    file://0004-Add-rpi-ft5406-overlay.dts.patch \
     file://rpi2-defconfig.patch \
     file://HULK_SMASH.patch \
     file://defconfig \
